@@ -4,3 +4,14 @@
   message: <input type="text" name="message" id="message">
   <input type="submit">
 </form>
+
+<% if (locals.errors) { %>
+  <h2>Errors Occured</h2>
+  <ul>
+  <% locals.errors.forEach((error)=> { %>
+    <li>
+      <%= error.msg %>
+    </li>
+    <% }); %>
+      </ul>
+      <% } %>

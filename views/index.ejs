@@ -8,16 +8,18 @@
 
 <body>
   <a href="/new">new message</a>
-  <ul>
-    <% messages.forEach((message)=> { %>
-      User: <%= message.user %> <br>
-        Message: <%= message.text %> <br>
-          Date: <%= message.added.toString() %> <br>
-            <button onclick="openMessage('<%= message.id %>')">open</button>
-            <a href="<%= message.id %>"></a>
-            <br><br>
-            <% }); %>
-  </ul>
+  <% if (locals.messages) {%>
+    <ul>
+      <% messages.forEach((message)=> { %>
+        User: <%= message.username %> <br>
+          Message: <%= message.text %> <br>
+            Date: <%= message.added.toString() %> <br>
+              <!-- <button onclick="openMessage('<%= message.id %>')">open</button> -->
+              <a href="/message/<%= message.id %>">open</a>
+              <br><br>
+              <% }); %>
+                <%}%>
+    </ul>
 </body>
 
 </html>
